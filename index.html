@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+        <link rel="shortcut icon" href="../favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="My Website" />
+        <link rel="manifest" href="site.webmanifest" />
+
+        <title>Whack a creeper</title>
+        <link rel="stylesheet" href="whack-a-creeper.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lexend:wght@100..900&family=Oxanium:wght@200..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <section id="start" class="screen show">
+            <img class="creeper-face" src="../images/creeper-face.png">
+            <h1>Whack <span id="green-a">a</span> <span id="darkcolor-word">creeper</span></h1>
+            <h3>Click the creepers before they hide!</h3>
+            <button onclick="switchScreen('game'); startTimer()" class="start-btn">Start!</button>
+        </section>
+
+        <section id="game" class="screen" hidden>
+            <div class="scoreANDtime">
+                <p class="SCORE">🏆Score:<span id="score"> </span></p>
+                <p class="TIME">⏱️ Time: <span id="timeVal"></span></p>
+            </div>
+                <div class="blocks">
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                    <div class="block"><img class="block-img" src="../images/block.png"></div>
+                </div>
+        </section>
+
+        <section id="end" class="screen" hidden>
+            <h1>Times up!</h1>
+            <h3>Your score was <span class="end-score"></span></span></h3>
+        </section>
+
+    <script src="whack-a-creeper.js">
+
+    </script>
+
+    </body>
+</html>
