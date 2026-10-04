@@ -1,0 +1,192 @@
+body {
+    font-family: Oxanium;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(171, 235, 245);
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    margin: 50px;
+}
+
+#end {
+    font-family: Pixelify Sans;
+    background: grey;
+}
+
+.creeper-face{
+    margin-top: 100px;
+}
+
+/*==========
+   Screen 1
+===========*/
+h1 {
+    color: rgb(17, 231, 17);
+}
+
+#green-a {
+    color: rgb(87, 176, 87);
+}
+#darkcolor-word {
+    color: darkgreen;
+}
+
+.start-btn {
+    display: inline-block;
+    font-weight: bold;
+    font-family: Pixelify Sans;
+    font-size: 30px;
+    border: ridge rgba(74, 72, 72, 0.744) 5px;
+    transition: all 250ms;
+    transform: scale(1);
+    text-decoration: none;
+    color: black;
+    background-color: rgb(196, 195, 195);
+    padding: 5px;
+    margin-bottom: 70px;
+}
+
+
+.start-btn:hover {
+    transform: scale(1.07);
+    transition: all 250ms ease;
+    background-color:rgb(87, 176, 87);
+    color: lightgreen;
+    border-color: green;
+}
+
+@media (min-width: 700px) {
+    section {
+        margin: 50px;
+        margin-right: 10%;
+        margin-left: 10%;
+
+
+
+    }
+    .creeper-face {
+        margin-top: 40px;
+    }
+    .start-btn{
+        text-align: center;
+        width: 150px;
+        height: 80px;
+    }
+    h1 {
+        font-size: 50px;
+    }
+}
+
+/*==============
+    screen 2 
+=============*/
+
+section {
+     margin: 20px;
+}
+
+#game {
+    transform-origin: top center;
+    padding: 5px;
+}
+        
+.blocks {
+    display: grid;
+    grid-template: 120px 120px 120px/120px 120px 120px; 
+    gap: 40px;
+    margin-top:0px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.block:active {
+    filter: brightness(70%);
+}
+
+.block {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    overflow: visible;
+    clip-path: inset(-100px 0 0 0);
+}
+
+.block-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.creeper {
+    width: 100px;
+    position: absolute;
+    z-index: 1;
+    top: 115px;
+    left: 13px;
+    transition: top 220ms ease;
+}
+
+.block.up .creeper {
+    top: -20px;
+}
+/*score and time*/
+
+.scoreANDtime {
+    display: flex;
+}
+#score, #timeVal {
+    font-family: 'Lucida Sans';
+}
+
+
+.TIME {
+    margin-left: auto;
+}
+.SCORE , .TIME, .start-btn  {
+    background: linear-gradient(
+        to bottom,
+        rgb(60, 60, 60),
+        rgb(30, 30, 30)
+    );
+    color: white;
+    padding: 10px 20px;
+    border: 4px ridge gray;
+    border-radius: 8px;
+    font-family: Pixelify Sans;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+
+@media (max-width: 700px) {
+    .blocks {
+        grid-template: 90px 90px 90px/90px 90px 90px;
+        gap: 30px;
+    }
+    .block {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .SCORE, .TIME {
+        font-size: 30px;
+    }
+    .creeper {
+        width: 75px;
+        position: absolute;
+        z-index: 1;
+        top: 100px;
+        left: 11px;
+    }
+}
+
+@media (max-width: 550px) {
+    .scoreANDtime {
+        display: block;
+    }
+}
+
+
+
