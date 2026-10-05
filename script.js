@@ -6,7 +6,7 @@ let score = 1
 let scoreEl = document.querySelector("#score")
 
 let creeper = document.createElement("img")
-creeper.src = "../images/creeper-face.png"
+creeper.src = "creeper.png"
 creeper.className = "creeper"
 let blocks = document.querySelectorAll(".block")
 
