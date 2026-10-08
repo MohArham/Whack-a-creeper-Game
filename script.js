@@ -1,5 +1,5 @@
 let currentSectionId = "start"
-let time = 3;
+let time = 31;
 let timeEl = document.querySelector("#timeVal")
 let startBtn = document.querySelector(".start-btn")
 let score = 1
