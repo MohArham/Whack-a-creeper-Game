@@ -9,11 +9,9 @@ body {
     margin: 50px;
 }
 
-#end {
-    font-family: Pixelify Sans;
-    background: grey;
+section[hidden] {
+    display: none !important;
 }
-
 .creeper-face{
     margin-top: 100px;
 }
@@ -123,7 +121,7 @@ section {
     width: 100px;
     position: absolute;
     z-index: 1;
-    top: 115px;
+    top: 130px;
     left: 13px;
     transition: top 220ms ease;
 }
@@ -137,7 +135,7 @@ section {
     display: flex;
 }
 #score, #timeVal {
-    font-family: 'Lucida Sans';
+    font-family:  Oxanium;
 }
 
 
@@ -188,5 +186,143 @@ section {
     }
 }
 
+/*=================
+    SCREEN 3
+================*/
+#end {
+    font-family: "Pixelify Sans";
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        180deg,
+        rgb(220, 255, 220),
+        rgb(171, 235, 245)
+    );
+
+    border: 5px solid darkgreen;
+    border-radius: 20px;
+    box-shadow: 0 8px 0 darkgreen;
+    padding: 10px;
+}
+
+.End-h1 {
+    font-style: bold;
+    text-shadow: 3px 5px black;
+    font-size: 60px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+/*
+.end-line {
+    font-family: cascadia code;
+    margin-top: 0px;
+}
+.end-score {
+    background: rgb(66, 66, 66);
+    color: white;
+    padding-top: 40px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    border: grey 5px solid;
+    font-size: 50px;
+}
+
+.img2 {
+    margin-top: 0px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+*/
+.restart-btn + p {
+    margin-bottom: 0;
+}
+
+.img2 {
+    width: 120px;
+    margin: 0;
+    filter: drop-shadow(0 0 10px rgb(40, 200, 40));
+}
+
+.end-line {
+    font-family: "Cascadia Code", monospace;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.end-score {
+    background: rgb(35, 35, 35);
+    color: white;
+    padding: 20px 45px;
+    border: 4px solid rgb(30, 150, 30);
+    border-radius: 12px;
+    font-size: 50px;
+    box-shadow: 0 5px 25px darkgreen;
+}
+
+.restart-btn + p {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.restart-btn {
+    display: inline-block;
+    font-weight: bold;
+    font-family: Oxanium;
+    font-size: 30px;
+    border: ridge rgb(19, 177, 90) 5px;
+    transition: all 250ms;
+    transform: scale(1);
+
+    text-decoration: none;
+    color: rgb(102, 177, 10);
+    background-color: rgb(140, 255, 140);
+    padding: 15px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.restart-btn:hover {
+    color: rgb(19, 177, 90);
+    background-color: rgb(218, 255, 173);
+    transform: scale(1.08);
+    box-shadow: 0 5px 20px black;
+}
+
+.end-score {
+    text-shadow: 5px 5px 25px black;
+}
 
 
+
+@media (max-width: 550px) {
+    #end {
+        min-height: 60vh;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .End-h1 {
+        font-size: 42px;
+    }
+
+    .img2 {
+        width: 90px;
+    }
+
+    .end-score {
+        font-size: 38px;
+        padding: 15px 30px;
+    }
+
+    .restart-btn {
+        font-size: 25px;
+        margin-top: 10px;
+    }
+}
