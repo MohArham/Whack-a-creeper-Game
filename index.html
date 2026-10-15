@@ -16,10 +16,13 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lexend:wght@100..900&family=Oxanium:wght@200..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     </head>
     <body>
         <section id="start" class="screen show">
-            <img class="creeper-face" src="creeper.png">
+            <img class="creeper-face" src="../images/creeper-face.png">
             <h1>Whack <span id="green-a">a</span> <span id="darkcolor-word">creeper</span></h1>
             <h3>Click the creepers before they hide!</h3>
             <button onclick="switchScreen('game'); startTimer()" class="start-btn">Start!</button>
@@ -44,8 +47,12 @@
         </section>
 
         <section id="end" class="screen" hidden>
-            <h1>Times up!</h1>
-            <h3>Your score was <span class="end-score"></span></span></h3>
+            <img class="img2" src="creeper.png">
+            <h1 class="End-h1">TIMES UP!</h1>
+            <h3 class="end-line">Your score was</h3>
+            <span class="end-score">🏆 </span>
+            <button class="restart-btn" onclick="resetGame()">Restart</button>
+            <p>Try to beat it!</p>
         </section>
 
     <script src="script.js">
