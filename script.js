@@ -1,56 +1,100 @@
-let currentSectionId = "start"
+let currentSectionId = "start";
 let time = 31;
-let timeEl = document.querySelector("#timeVal")
-let startBtn = document.querySelector(".start-btn")
-let score = 1
-let scoreEl = document.querySelector("#score")
+let timeEl = document.querySelector("#timeVal");
+let scoreEl = document.querySelector("#score");
+let endScore = document.querySelector(".end-score");
+let score = 0;
+let timer;
+let creeperTime;
+let spawnTimeout;
+let hideTimeout;
 
-let creeper = document.createElement("img")
-creeper.src = "creeper.png"
-creeper.className = "creeper"
-let blocks = document.querySelectorAll(".block")
+let creeper = document.createElement("img");
+creeper.src = "creeper.png";
+creeper.className = "creeper";
+let blocks = document.querySelectorAll(".block");
 
-//switching screen function
+// Switch screens
 function switchScreen(nextSectionId) {
-    document.getElementById(currentSectionId).hidden = true
+    document.getElementById(currentSectionId).hidden = true;
     document.getElementById(nextSectionId).hidden = false;
     currentSectionId = nextSectionId;
 }
 
-//spawning creeper 
+// Spawn a creeper
 function spawnCreeper() {
-    let randomBlock = blocks[Math.floor(Math.random() * 9)]
-    randomBlock.append(creeper)
+    let randomBlock = blocks[Math.floor(Math.random() * blocks.length)];
+    randomBlock.append(creeper);
 
-    setTimeout(function() {
-        randomBlock.classList.add("up")
-    }, 50)
-
-    setTimeout(function() {
-        randomBlock.classList.remove("up")
-    }, 800)
+    spawnTimeout = setTimeout(function() {
+        randomBlock.classList.add("up");
+    }, 50);
+    hideTimeout = setTimeout(function() {
+        randomBlock.classList.remove("up");
+    }, 800);
 }
 
-// add score when creeper is pressed
+// Add score when the creeper is clicked
 creeper.addEventListener("click", function() {
-    scoreEl.textContent = score++
-}) 
+    score++;
+    scoreEl.textContent = score;
+});
 
-//timer function including the timer and how much 
-// time the creeper will spawn
+// Start the timer and creeper spawning
 function startTimer() {
-    let timer = setInterval(function(){
-        time--
-        timeEl.textContent = time
+    clearInterval(timer);
+    clearInterval(creeperTime);
 
-        if (time === 0) {
-            clearInterval(timer)
-            clearInterval(creeperTime)
-            switchScreen('end')
+    timer = setInterval(function() {
+        time--;
+        timeEl.textContent = time;
+
+        if (time <= 0) {
+            clearInterval(timer);
+            clearInterval(creeperTime);
+            clearTimeout(spawnTimeout);
+            clearTimeout(hideTimeout);
+            time = 0;
+            timeEl.textContent = time;
+            creeper.classList.remove("up");
+            creeper.remove();
+
+            blocks.forEach(function(block) {
+                block.classList.remove("up");
+            });
+            switchScreen("end");
+            endScore.textContent = "🏆 " + score;
         }
-    },1000)
+    }, 1000);
 
-    let creeperTime = setInterval(function() {
-                        spawnCreeper()
-                    },1200)
+    creeperTime = setInterval(function() {
+        spawnCreeper();
+    }, 1200);
 }
+
+// Restart the game
+function resetGame() {
+    clearInterval(timer);
+    clearInterval(creeperTime);
+    clearTimeout(spawnTimeout);
+    clearTimeout(hideTimeout);
+    time = 31;
+    score = 0;
+
+    timeEl.textContent = time;
+    scoreEl.textContent = score;
+    endScore.textContent = "🏆 " + score;
+    creeper.classList.remove("up");
+    creeper.remove();
+
+    blocks.forEach(function(block) {
+        block.classList.remove("up");
+    });
+    switchScreen("game");
+    startTimer();
+}
+
+// Initialize the score display
+scoreEl.textContent = score;
+timeEl.textContent = time;
+endScore.textContent = "🏆 " + score;
