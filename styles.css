@@ -257,6 +257,7 @@ section {
 }
 
 .end-score {
+    font-family: Oxanium;
     background: rgb(35, 35, 35);
     color: white;
     padding: 20px 45px;
