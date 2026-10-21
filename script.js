@@ -12,7 +12,7 @@ let spawnTimeout;
 let hideTimeout;
 
 let creeper = document.createElement("img");
-creeper.src = "creeper-face.png";
+creeper.src = "creeper.png";
 creeper.className = "creeper";
 let blocks = document.querySelectorAll(".block");
 
