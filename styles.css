@@ -14,11 +14,23 @@ section[hidden] {
 }
 .creeper-face{
     margin-top: 100px;
+    animation: pulse 1s infinite ease-in-out alternate;
+}
+.first-h1 {
+    animation: pulse 1s infinite ease-in-out alternate;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 }
 
-/*==========
-   Screen 1
-===========*/
+/*===============
+   Start screen
+================*/
 h1 {
     color: rgb(17, 231, 17);
 }
@@ -75,10 +87,183 @@ h1 {
         font-size: 50px;
     }
 }
+/*=======================================
+    Touchscreen/no touchscreen screen 
+=======================================*/
+.touchscreen-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16%;
+}
+.touchscreen-btn {
+    transition: all 250ms;
+    font-family: Oxanium;
+    background: radial-gradient(rgb(191, 255, 191),lightgreen );
+    border: green 5px double;
+    border-radius: 5px;
+    color: black;
+    width: 70%;
 
-/*==============
-    screen 2 
-=============*/
+}
+.touchscreen-btn p {
+    color: rgb(11, 138, 40);
+    font-size: 15px;
+}
+.touchscreen-btn h3 {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.touchscreen-btn svg{
+    width: 60px;
+    margin-bottom: 0px;
+    transform: translate(0px,25px);
+    color: rgb(0, 255, 0);
+}
+.touchscreen-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 50px green;
+}
+
+
+
+.no-touchscreen-btn {
+    transition: all 250ms;
+    font-family: Oxanium;
+    background: radial-gradient(rgb(170, 233, 254),rgb(165, 253, 255));
+    border: rgb(17, 194, 197) 5px double;
+    border-radius: 5px;
+    color: black;
+    width: 70%;
+
+}
+.no-touchscreen-btn p {
+    color: rgb(23, 137, 155);
+    font-size: 15px;
+}
+.no-touchscreen-btn h3 {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.no-touchscreen-btn svg{
+    width: 60px;
+    margin-bottom: 0px;
+    transform: translate(0px,25px);
+    color: rgb(0, 255, 0);
+}
+.no-touchscreen-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 50px rgb(63, 191, 230);
+}
+/*=================
+    difficulty screen 
+================*/
+.difficulty-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+.btn {
+    font-family: Oxanium;
+    border: none; 
+    border-radius: 7px; 
+    padding: 10px;
+    transform: scale(1);
+    transition: all 250ms;
+}
+
+.btn h2 {
+    font-size: 40px;
+    text-shadow: 0px 2px  black;
+    margin-bottom: 5px;
+}
+.star-group {
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px black solid;
+    border-radius: 3px;
+}
+.btn svg {
+    width: 30px;
+    margin-bottom: 10px;
+}
+
+.easy-btn h2,
+.easy-btn .star-group {
+    color: rgb(33, 187, 33);
+    border-color: rgb(33, 187, 33);
+}
+
+.medium-btn h2,
+.medium-btn .star-group {
+    color: rgb(172, 187, 33);
+    border-color: rgb(172, 187, 33);
+}
+
+.hard-btn h2,
+.hard-btn .star-group {
+    color: rgb(187, 33, 33);
+    border-color: rgb(187, 33, 33);
+}
+.intro-list {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+    list-style-type: square;
+}
+.intro-list li {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    white-space: none;
+}
+
+.intro-list li::marker {
+  font-size: 1.7rem;
+}
+
+.easy-btn .intro-list li::marker {
+  color: rgb(33, 187, 33);
+}
+.medium-btn .intro-list li::marker {
+  color: rgb(172, 187, 33);
+}
+.hard-btn .intro-list li::marker {
+  color: rgb(187, 33, 33);
+}
+
+.easy-btn {
+    border: rgb(33, 187, 33) solid 3px;
+    background: linear-gradient(white, rgb(164, 239, 164));
+}
+.medium-btn {
+    border: rgb(172, 187, 33) solid 3px;
+    background: linear-gradient(white, rgb(240, 252, 133));
+}
+.hard-btn {
+    border: rgb(187, 33, 33) solid 3px;
+    background: linear-gradient(white, rgb(250, 185, 185));
+}
+
+.easy-btn:hover {
+    box-shadow: 5px 5px 25px rgb(33, 187, 33);
+    transform: scale(1.05);
+}
+.medium-btn:hover {
+    box-shadow: 5px 5px 25px rgb(172, 187, 33);
+    transform: scale(1.05);
+}
+.hard-btn:hover {
+    box-shadow: 5px 5px 25px rgb(187, 33, 33);
+    transform: scale(1.05);
+}
+
+/*=================
+    game screen 
+================*/
 
 section {
      margin: 20px;
@@ -187,7 +372,7 @@ section {
 }
 
 /*=================
-    SCREEN 3
+    end screen 
 ================*/
 #end {
     font-family: "Pixelify Sans";
@@ -217,29 +402,6 @@ section {
     margin-top: 10px;
 }
 
-/*
-.end-line {
-    font-family: cascadia code;
-    margin-top: 0px;
-}
-.end-score {
-    background: rgb(66, 66, 66);
-    color: white;
-    padding-top: 40px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-bottom: 40px;
-    border-radius: 10px;
-    border: grey 5px solid;
-    font-size: 50px;
-}
-
-.img2 {
-    margin-top: 0px;
-    width: 150px;
-    margin-bottom: 10px;
-}
-*/
 .restart-btn + p {
     margin-bottom: 0;
 }
