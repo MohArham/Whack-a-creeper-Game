@@ -1,4 +1,6 @@
 let currentSectionId = "start";
+let difficulty = "easy";
+let spawnSpeed = 1200
 let time = 31;
 let timeEl = document.querySelector("#timeVal");
 let scoreEl = document.querySelector("#score");
@@ -10,7 +12,7 @@ let spawnTimeout;
 let hideTimeout;
 
 let creeper = document.createElement("img");
-creeper.src = "creeper.png";
+creeper.src = "creeper-face.png";
 creeper.className = "creeper";
 let blocks = document.querySelectorAll(".block");
 
@@ -20,6 +22,20 @@ function switchScreen(nextSectionId) {
     document.getElementById(nextSectionId).hidden = false;
     currentSectionId = nextSectionId;
 }
+
+//Change the difficulty
+function changeDifficulty(changedDifficulty) {
+    difficulty = changedDifficulty
+    if (difficulty === "Medium") {
+        spawnSpeed = 850
+    } else if (difficulty === "Hard"){
+        spawnSpeed = 580
+        time = 21
+    } else {
+        spawnSpeed = 1200
+    }
+}
+    
 
 // Spawn a creeper
 function spawnCreeper() {
@@ -69,7 +85,7 @@ function startTimer() {
 
     creeperTime = setInterval(function() {
         spawnCreeper();
-    }, 1200);
+    }, spawnSpeed);
 }
 
 // Restart the game
@@ -90,7 +106,7 @@ function resetGame() {
     blocks.forEach(function(block) {
         block.classList.remove("up");
     });
-    switchScreen("game");
+    switchScreen("input-method");
     startTimer();
 }
 
@@ -98,3 +114,5 @@ function resetGame() {
 scoreEl.textContent = score;
 timeEl.textContent = time;
 endScore.textContent = "🏆 " + score;
+
+// Add sound (for later)
