@@ -10,6 +10,9 @@ let spawnTimeout;
 let hideTimeout;
 
 let hitSound = new Audio("creeper-hit.mp3");
+let backgroundMusic = new Audio("background-music.mp3")
+backgroundMusic.loop = true;
+backgroundMusic.volume = 0.3;
 let difficulty = "easy";
 let spawnSpeed = 1200
 
@@ -58,6 +61,12 @@ creeper.addEventListener("click", function() {
     scoreEl.textContent = score;
     hitSound.currentTime = 0;
     hitSound.play();
+});
+
+//Background music
+document.addEventListener("click", function startMusic(){
+    backgroundMusic.play()
+    document.removeEventListener("click", startMusic())
 });
 
 // Start the timer and creeper spawning
