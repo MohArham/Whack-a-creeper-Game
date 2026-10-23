@@ -1,4 +1,6 @@
 let currentSectionId = "start";
+let difficulty = "easy";
+let spawnSpeed = 1200
 let time = 31;
 let timeEl = document.querySelector("#timeVal");
 let scoreEl = document.querySelector("#score");
@@ -9,12 +11,14 @@ let creeperTime;
 let spawnTimeout;
 let hideTimeout;
 
-let hitSound = new Audio("creeper-hit.mp3");
+let hitSound = new Audio("creeper-hit.mp3")
+let actionMusic = new Audio("action-music.mp3")
+actionMusic.loop = true;
+actionMusic.volume = 0.3;
 let backgroundMusic = new Audio("background-music.mp3")
 backgroundMusic.loop = true;
-backgroundMusic.volume = 0.3;
-let difficulty = "easy";
-let spawnSpeed = 1200
+backgroundMusic.volume = 0.2;
+
 
 let creeper = document.createElement("img");
 creeper.src = "creeper.png";
@@ -33,11 +37,13 @@ function changeDifficulty(changedDifficulty) {
     difficulty = changedDifficulty
     if (difficulty === "Medium") {
         spawnSpeed = 680
+        time = 31
     } else if (difficulty === "Hard"){
         spawnSpeed = 580
         time = 21
     } else {
         spawnSpeed = 1200
+        time = 31
     }
 }
     
@@ -57,6 +63,7 @@ function spawnCreeper() {
 
 // Add score when the creeper is clicked
 creeper.addEventListener("click", function() {
+    if (time <= 0 || currentSectionId !== "game") return;
     score++;
     scoreEl.textContent = score;
     hitSound.currentTime = 0;
@@ -66,13 +73,17 @@ creeper.addEventListener("click", function() {
 //Background music
 document.addEventListener("click", function startMusic(){
     backgroundMusic.play()
-    document.removeEventListener("click", startMusic())
+    document.removeEventListener("click", startMusic)
 });
 
 // Start the timer and creeper spawning
 function startTimer() {
     clearInterval(timer);
     clearInterval(creeperTime);
+
+    backgroundMusic.pause();
+    actionMusic.currentTime = 0;
+    actionMusic.play();
 
     timer = setInterval(function() {
         time--;
@@ -87,6 +98,11 @@ function startTimer() {
             timeEl.textContent = time;
             creeper.classList.remove("up");
             creeper.remove();
+
+            actionMusic.pause();
+            actionMusic.currentTime = 0;
+            backgroundMusic.currentTime = 0;
+            backgroundMusic.play();
 
             blocks.forEach(function(block) {
                 block.classList.remove("up");
@@ -116,16 +132,18 @@ function resetGame() {
     creeper.classList.remove("up");
     creeper.remove();
 
+    actionMusic.pause();
+    actionMusic.currentTime = 0;
+    backgroundMusic.currentTime = 0;
+    backgroundMusic.play();
+
     blocks.forEach(function(block) {
         block.classList.remove("up");
     });
     switchScreen("input-method");
-    startTimer();
 }
 
 // Initialize the score display
 scoreEl.textContent = score;
 timeEl.textContent = time;
 endScore.textContent = "🏆 " + score;
-
-// Add sound (for later)
