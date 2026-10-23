@@ -1,6 +1,4 @@
 let currentSectionId = "start";
-let difficulty = "easy";
-let spawnSpeed = 1200
 let time = 31;
 let timeEl = document.querySelector("#timeVal");
 let scoreEl = document.querySelector("#score");
@@ -10,6 +8,10 @@ let timer;
 let creeperTime;
 let spawnTimeout;
 let hideTimeout;
+
+let hitSound = new Audio("creeper-hit.mp3");
+let difficulty = "easy";
+let spawnSpeed = 1200
 
 let creeper = document.createElement("img");
 creeper.src = "creeper.png";
@@ -54,6 +56,8 @@ function spawnCreeper() {
 creeper.addEventListener("click", function() {
     score++;
     scoreEl.textContent = score;
+    hitSound.currentTime = 0;
+    hitSound.play();
 });
 
 // Start the timer and creeper spawning
