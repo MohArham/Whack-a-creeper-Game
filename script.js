@@ -27,7 +27,7 @@ function switchScreen(nextSectionId) {
 function changeDifficulty(changedDifficulty) {
     difficulty = changedDifficulty
     if (difficulty === "Medium") {
-        spawnSpeed = 850
+        spawnSpeed = 680
     } else if (difficulty === "Hard"){
         spawnSpeed = 580
         time = 21
