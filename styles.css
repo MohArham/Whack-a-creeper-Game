@@ -489,3 +489,16 @@ section {
         margin-top: 10px;
     }
 }
+
+/* FOOTER */
+footer {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.8;
+
+}
+footer a {
+    color: #063507; 
+}
+
+
