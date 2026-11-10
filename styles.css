@@ -28,6 +28,118 @@ section[hidden] {
     }
 }
 
+/*===================
+   High score - HS
+====================*/
+
+.HS-container {
+    width: 230px;
+    margin-left: auto;
+    padding: 12px;
+    background: #17251d;
+    border: 2px solid #7cff8b;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px #263b2c, 0 0 14px #4cff67;
+    text-align: center;
+    transition: 0.3s;
+}
+.HS-container-2 {
+    width: 230px;
+    padding: 12px;
+    background: #17251d;
+    border: 2px solid #7cff8b;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px #263b2c, 0 0 14px #4cff67;
+    text-align: center;
+    transition: 0.3s;
+    margin-top: 30px;
+}
+
+.HS {
+    margin: 0;
+    font-family: "Pixelify Sans";
+    font-size: 21px;
+    color: #e0ffe4;
+    text-shadow: 2px 2px #24552d;
+}
+
+.HS-number {
+    font-family: "Oxanium";
+}
+
+.HS-container:hover {
+    transform: scale(1.04);
+    background: #203629;
+    box-shadow:0 0 0 3px #263b2c, 0 0 22px #4cff67;
+}
+
+/**********
+dropdown section
+***********/
+.HS-container.easy {
+    background: #302b12;
+    border-color: #7cff8b;
+    box-shadow: 0 0 0 3px #4a421c, 0 0 14px #f2d84a;
+}
+
+.HS-container.easy .HS {
+    color: #e0ffe4;
+}
+
+.HS-container.medium {
+    background: #302b12;
+    border-color: #f2d84a;
+    box-shadow: 0 0 0 3px #4a421c, 0 0 14px #f2d84a;
+}
+.HS-container.medium .HS {
+    color: #f2d84a;
+}
+
+.HS-container.hard {
+    background: #351919;
+    border-color: #ff5555;
+    box-shadow: 0 0 0 3px #4a2525, 0 0 14px #ff5555;
+}
+
+.HS-container.hard .HS {
+    color: #ff5555;
+}
+
+.HS-option {
+    transition: all 250ms;
+    font-family: Oxanium;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.easy-btn-option {
+    color: green;
+    background: rgb(169, 241, 169);
+}
+.medium-btn-option {
+    color: rgb(146, 146, 2);
+    background-color: lightgoldenrodyellow;
+}
+.hard-btn-option {
+    color: red;
+    background: rgb(255, 198, 198);
+}
+
+.easy-btn-option:hover {
+    background-color: green;
+    color: rgb(169, 241, 169);
+}
+.medium-btn-option:hover {
+    background-color: rgb(146, 146, 2);
+    color: lightgoldenrodyellow;
+}
+.hard-btn-option:hover {
+    background-color: red;
+    color: rgb(255, 198, 198);
+}
+
 /*===============
    Start screen
 ================*/
@@ -500,5 +612,4 @@ footer {
 footer a {
     color: #063507; 
 }
-
 
