@@ -104,6 +104,37 @@ dropdown section
 .HS-container.hard .HS {
     color: #ff5555;
 }
+/* End screen high score colours */
+
+.HS-container-2.easy {
+    background: #302b12;
+    border-color: #7cff8b;
+    box-shadow: 0 0 0 3px #4a421c, 0 0 14px #f2d84a;
+}
+
+.HS-container-2.easy .HS {
+    color: #e0ffe4;
+}
+
+.HS-container-2.medium {
+    background: #302b12;
+    border-color: #f2d84a;
+    box-shadow: 0 0 0 3px #4a421c, 0 0 14px #f2d84a;
+}
+
+.HS-container-2.medium .HS {
+    color: #f2d84a;
+}
+
+.HS-container-2.hard {
+    background: #351919;
+    border-color: #ff5555;
+    box-shadow: 0 0 0 3px #4a2525, 0 0 14px #ff5555;
+}
+
+.HS-container-2.hard .HS {
+    color: #ff5555;
+}
 
 .HS-option {
     transition: all 250ms;
